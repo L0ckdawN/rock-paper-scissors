@@ -1,9 +1,10 @@
     let minNumber = 20;
     let maxNumber = 50;
+    
+function getComputerChoice(){
+
     let randomNumber = Math.floor(Math.random() * (+maxNumber + 1 - +minNumber)) + +minNumber;
 
-function getComputerChoice(){
-   
 
     if (randomNumber <= 30){
      let computerResult='rock';
@@ -30,6 +31,7 @@ const playerChoice = prompt("Choose between rock paper and scissors");
  console.log(playerChoice.toLowerCase());
  return playerChoice.toLowerCase();
 }
+
 function playGame(){
 let humanScore = 0
 let computerScore = 0
@@ -42,7 +44,7 @@ function playRound(humanChoice, computerChoice){
         humanScore++;
 
     } else if (humanChoice === "rock" && computerChoice === 'scissors'){
-        Console.log ("You Win! Rock beat Scissors.");
+        console.log ("You Win! Rock beat Scissors.");
         humanScore++;
 
         
@@ -55,11 +57,25 @@ function playRound(humanChoice, computerChoice){
     
     else{
         console.log("You Lose!");
+        computerScore++;
     }
 
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-    playRound(humanSelection,computerSelection);
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    
+    if(humanScore > computerScore){
+        console.log(`Player has won:  ${humanScore} -  ${computerScore}`);
+    
+    }else if(humanScore === computerScore){
+        console.log(`You have tied with the score ${humanScore} - ${computerScore}`)
+    }
+    else {
+        console.log(`Computer has won: "  ${computerScore} - ${humanScore}`);
+    }
+
 }
 playGame();
